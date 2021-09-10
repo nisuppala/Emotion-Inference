@@ -747,58 +747,7 @@ def notes():
 
 #### MAIN ####
 def main():
-    # subscription_end_date = '2021-02-28'
-    # now = datetime.now()
-    # later = datetime.strptime(subscription_end_date, '%Y-%m-%d')
-    if state.user_name == None:
-            title = st.empty()
-            logo = st.empty()
-            text1 = st.empty()
-            text2 = st.empty()
-            usrname_placeholder = st.empty()
-            pwd_placeholder = st.empty()
-            submit_placeholder = st.empty()
-            print('log in page initiated')
-
-            title.title('Amruta XAI')
-            logo.image(Image.open(LOGO_IMAGE), width=300)
-            text1.text('Copyright Amruta Inc. 2021')
-            text2.text('Beta/Test Version')
-            state.usrname = usrname_placeholder.text_input("User Name", state.usrname if state.usrname else '')
-            state.pwd = pwd_placeholder.text_input("Password", type="password", value=state.pwd if state.pwd else '')
-            state.submit = submit_placeholder.button("Log In", state.submit)
-            print('log in elements generated')
-
-            if state.submit:
-                print(state.submit)
-                state.validation_status = validate(state.usrname, state.pwd)
-                if state.validation_status == 'Access Granted':
-                    # store input username to session state
-                    state.user_name = state.usrname
-                    print(state.user_name)
-
-                    # empty login page elements
-                    title.empty()
-                    logo.empty()
-                    text1.empty()
-                    text2.empty()
-                    usrname_placeholder.empty()
-                    pwd_placeholder.empty()
-                    submit_placeholder.empty()
-
-                    # start main app
-                    print('main app entered')
-                    render_app()
-                elif state.validation_status == 'Invalid username/password':
-                    print('Invalid username/password')
-                    st.error("Invalid username/password")
-                elif state.validation_status == 'Subscription Ended':
-                    print('Your subscription has ended. Please contact us to extend it.')
-                    st.info("Your subscription has ended. Please contact us to extend it.")
-                # elif:
-                #     st.error("invalid credentials")
-    else:
-        render_app()
+    render_app()
 
 
 main()
